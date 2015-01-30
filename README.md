@@ -7,7 +7,7 @@ Runs `python -m py_compile` on your Python files, based on https://github.com/jb
 
 #### Usage
 
-Install TortoiseSVN hook (tsvn:precommithook)
+##### Install TortoiseSVN hook (tsvn:precommithook)
 
 1) Change directory to where your working copy is and run `install_hook.bat`
 
@@ -21,7 +21,7 @@ Install TortoiseSVN hook (tsvn:precommithook)
 3) From now on every time you commit your changes the dialog window should appear asking you 
    whether you want to apply the hook
 
-Remove TortoiseSVN hook
+##### Remove TortoiseSVN hook
 
 1) Change directory to where your working copy is and run `remove_hook.bat`
  
