@@ -1,41 +1,34 @@
-Runs `pyflakes`, `pep8.py` on your Python files. Runs `jshint` on your
-Javascript and a trailing whitespace checker on all the rest.  Keeps
-anal-retentive style nazis like me happy, and should (in theory) make
-your code look nicer.
-
-#### How to use it
-
-    check.py
-
-This will run checks on any added or modified files according to your vcs's
-`status` command (git or svn at the moment).
-
-    check.py models.py tests/
-
-This will run checks on `models.py` and any files found recursively in the
-`tests/` directory.
+Runs `python -m py_compile` on your Python files, based on https://github.com/jbalogh/check
 
 #### Installation
 
-Best installed with pip or easy_install so you also get the pyflakes dependency.
+1) Make directory `c:\pycheck` and extract the archive there
 
-The easiest way to get jshint installed is via npm:
 
-    npm install -g jshint
+#### Usage
 
-#### Use as a git pre-commit hook
+Install TortoiseSVN hook (tsvn:precommithook)
 
-This is useful as a git pre-commit hook.  For example, this would go in your
-`.git/hooks/pre-commit` script:
+1) Change directory to where your working copy is and run `install_hook.bat`
 
-    #!/bin/sh
+    chdir d:\src\my_working_copy
+    c:\pycheck\install_hook.bat
 
-    check.py
-    if [ "$?" -ne "0" ]
-    then
-        echo "Aborting commit.  Fix above errors or do 'git commit --no-verify'."
-        exit 1
-    fi
+   now your hook is in TortoiseSVN > Properties
 
-Make sure your `pre-commit` file is executable and that `check.py` are on
-your `PATH`.
+2) Open `pycheck.py` and make sure that your Python's path is correct
+
+3) From now on every time you commit your changes the dialog window should appear asking you 
+   whether you want to apply the hook
+
+Remove TortoiseSVN hook
+
+1) Change directory to where your working copy is and run `remove_hook.bat`
+ 
+    chdir d:\src\my_working_copy
+    c:\pycheck\remove_hook.bat
+
+#### Links
+
+http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-settings.html#tsvn-dug-settings-hooks
+http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-tsvn-props

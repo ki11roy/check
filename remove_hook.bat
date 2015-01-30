@@ -1,0 +1,1 @@
+svn propdel tsvn:precommithook . --recursive

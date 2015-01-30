@@ -1,0 +1,1 @@
+svn propset tsvn:precommithook -F c:\pycheck\pre_commit_hook .
